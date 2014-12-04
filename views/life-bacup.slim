@@ -1,0 +1,44 @@
+script src="func.js"
+script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+link href='styles.css' rel='stylesheet' type='text/css'
+link href='/fonts/css/font-awesome.css' rel='stylesheet' type='text/css'
+
+div class='btnblc'  
+    <!-- КНОПКИ УПРАВЛЕНИЯ -->
+    div class="left"
+        <!--   РАЗМЕРЫ ПОЛЯ   -->
+        form action='reset' method= 'post'
+            button name='reset' type='submit'
+                i class="fa fa-refresh" 
+                span  reset
+            input name='x_size'  type='text' placeholder=@x_size 
+            input name='y_size'  type='text' placeholder=@y_size
+    div class="right"
+        <!-- КОЛИЧЕСТВО ШАГОВ(НЕ ДОПИЛЕНО) -->
+        count id='count'step: #{@cond_count}
+    div class="center"
+        button id='previous' onmousedown="previous(#{@x_size},#{@y_size})"
+            i class="fa fa-arrow-left" 
+            span  previous        
+        button name='next' onmousedown="next(#{@x_size},#{@y_size})" value='next' 
+            span next 
+            i class="fa fa-arrow-right"
+
+div class='place'
+    div class='place2'
+        <!-- СОЗДАНИЕ ПОЛЯ ИЗ КЛЕТОК  -->
+        - j = 0
+        - (@y_size*@x_size+@y_size).times do |i|
+            - if @field_str[i] == '*' 
+                - j += 1
+                button id= i onFocus="this.blur()" onmousedown='kill(this.id)' style=" width:15; height:15;transition: 0.2s; background-color:FF6633; border:0; outline:0" 
+            - elsif @field_str[i] == ' ' 
+                - j += 1
+                button id= i onFocus="this.blur()" onmousedown='live(this.id)' style=" width:15; height:15;transition: 0.2s; background-color:CCFFFF; border:0;   outline:0" 
+            - elsif @field_str[i] == '0'
+                 br
+
+
+
+
+s

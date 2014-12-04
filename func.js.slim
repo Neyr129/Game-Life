@@ -1,0 +1,59 @@
+script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+javascript:
+
+    function next(x_size, y_size) {
+        $.ajax({
+            type: "GET",
+            url: "/next",
+            success: function(temp_str){
+                refresh_field(x_size,y_size,temp_str)
+            }
+        }); 
+    };
+    
+    function previous(x_size, y_size) {
+         $.ajax({
+            type: "GET",
+            url: "/previous",
+            success: function(temp_str){
+                refresh_field(x_size,y_size,temp_str)      
+            }
+        });       
+    };
+
+
+    function kill(string_index,id) {
+        $('#'+id).attr("onmousedown", "live("+string_index+", this.id)")
+        $('#'+id).css('background-color', 'CCFFFF')       
+        $.ajax({
+            type: "POST",
+            url: "/kill",
+            data: {index: string_index},
+        }); 
+    };    
+
+    function live(string_index,id) {
+        $('#'+id).attr("onmousedown", "kill("+string_index+", this.id)");
+        $('#'+id).css('background-color', 'FF6633')       
+        $.ajax({
+            type: "POST",
+            url: "/live",
+            data: {index: string_index},
+        }); 
+    };
+
+    function refresh_field(x_size, y_size, temp_str){
+        id = 0;
+        for( i=0; i < (x_size*y_size+y_size); i++){
+            if (temp_str[i] == '*') {
+                id++ 
+                $('#'+id).attr("onmousedown", "kill("+i+","+id+")")
+                $("#"+id).css('background-color', 'FF6633')
+            }
+            else if (temp_str[i] == ' ') {
+                id++ 
+                $('#'+id).attr("onmousedown", "live("+i+","+id+")")
+                $("#"+id).css('background-color' ,'CCFFFF')
+            }
+        } 
+    };

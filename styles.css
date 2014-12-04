@@ -1,0 +1,88 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+
+body {
+	background: rgba(177, 228, 228, 1);
+}
+
+.place {
+	text-align:center;
+	padding:150px 0;
+}
+.inplace {
+	border:5px solid #fff; 
+	display: inline-block;
+}
+.inplace button.dead {
+	width:15px;
+	height:15px;
+	transition:0.2s;
+	background-color:#CCFFFF; 
+	border:0px; 
+	outline:0;
+}
+.inplace button.dead:hover {
+	background: #FFA384;
+	cursor: pointer;
+}
+.inplace button.alive {
+	background-color: #FF6633;
+	width:15px;
+	height:15px;
+	transition:0.2s;
+	border:0px; 
+	outline:0;
+}
+.inplace button.alive:hover {
+	cursor: pointer;
+}
+.btnblc  {
+	margin:0 auto;
+	text-align:center;
+	background: #fff;
+	padding:20px;
+}
+.btnblc .left {
+float:left;
+overflow:hidden;
+}
+.btnblc .right {
+	float:right;
+	display: inline-block;
+	text-align:center;
+	padding:10px;
+	background: #FF6633;
+	color: #fff;
+	font-weight:bold;
+}
+.btnblc .center {
+	margin:0 263px;
+}
+.btnblc button, .btnblc input {
+	border:0px;
+	padding:10px 20px;
+	background: #FF6633;
+	color: #fff;
+	margin-right:2px;
+	font:16px Arial;
+	outline: 0;
+}
+.btnblc button:hover {
+	background: #FF4000;
+	cursor: pointer;
+}
+.btnblc input[type="submit"]:hover {
+	background: #f2f2f2;
+	cursor: pointer;
+}
+.btnblc input[type="text"] {
+	width: 60px;
+	background: #f2f2f2;
+	color: #FF6633;
+	font-weight: bold;
+}
+.btnblc input[type="text"]:hover {
+	cursor: default;
+}

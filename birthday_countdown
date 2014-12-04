@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+class BirthdayCountdown
+	def initialize(month, day)
+	  @birthday_month = month
+	  @birthday_day = day
+	    
+	  # Current date
+	  @month = Time.now.month
+	  @day = Time.now.day
+	  @year = Time.now.year    
+	end
+
+
+	def isit?
+  		@month == @birthday_month && @day == @birthday_day
+	end	
+
+	def to_view
+    	isit? ? :yes : :no
+	end
+
+	def seconds_to_go
+	  next_birthday.to_i - Time.now.to_i
+	end
+end

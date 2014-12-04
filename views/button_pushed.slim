@@ -1,0 +1,25 @@
+script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+javascript:
+		function kill(){
+			$.ajax({
+			    type: "POST",
+			    url: "/huy",
+			    data: 'name=red',
+			    success: function(msg){
+					$('#message').css('color', 'red')   	
+			    } 
+			});
+		};		
+
+    function next() {
+	    $(document).ready(function(){
+	        $("#message").remove(); 
+	     });
+	};
+
+
+
+
+message id='message' asd
+button id="start" onCLick="next()" href="/start" huy
+
